@@ -695,108 +695,123 @@ function args_count() {
 
 
 
-const arr = [  
-  [1, 0],  
-  [0, 1],  
-  [1, 1]  
-]
+// const arr = [  
+//   [1, 0],  
+//   [0, 1],  
+//   [1, 1]  
+// ]
 
 
 
-// function foo(diffs) {
-//   var numbers = 0;
-//   for (var i = 0; i < diffs.length / 2; i++) {
-//     if (diffs[i][0] == 1) {
-//       diffs[i][0] = -1;
-//       numbers++;
-//     }
+// // function foo(diffs) {
+// //   var numbers = 0;
+// //   for (var i = 0; i < diffs.length / 2; i++) {
+// //     if (diffs[i][0] == 1) {
+// //       diffs[i][0] = -1;
+// //       numbers++;
+// //     }
+// //   }
+// //   numbers = 0
+// //   for (var i = 0; i < diffs.length / 2; i++) {
+// //     if (diffs[i][1] == 1) {
+// //       diffs[i][1] = -1;
+// //       numbers++;
+// //     }
+// //   }
+// //   return diffs
+// // }
+
+// // console.log(foo(arr))
+// // console.log(arr)
+
+
+// const data = [
+//   {
+//     geometry: [10, 20],
+//     text: "James"
+//   },
+//   {
+//     geometry: [20, 40],
+//     text: "Bond"
+//   },
+//   {
+//     geometry: [5, 40],
+//     text: "Bond"
+//   },
+//   {
+//     geometry: [15, 40],
+//     text: "Fuck"
 //   }
-//   numbers = 0
-//   for (var i = 0; i < diffs.length / 2; i++) {
-//     if (diffs[i][1] == 1) {
-//       diffs[i][1] = -1;
-//       numbers++;
+// ]
+
+// const dictionary = ['James', 'Bond']
+
+// console.log(foo(data, dictionary))
+ 
+// function foo(inputData, inputDictionary) { 
+  
+//   sortByCoordinates(inputData);
+  
+//   const textMessages = inputData.map(function (item) {
+//     return item.text;
+//   });
+  
+//   const resultMessage = textMessages.join(' ');
+  
+//   inputData.forEach(function (item) {
+//     item.geometry[0] = Math.log10(Math.sqrt(item.geometry[0] * Math.pow(2, 4)) / 256);
+//     item.geometry[1] = Math.log10(Math.sqrt(item.geometry[1] * Math.pow(2, 4)) / 256);
+//   }); 
+
+//   const absentWords = [];
+//   for (let i = 0; i <= inputData.length - 1; i++) {
+//     let found = false;
+//     for (let j = 0; j <= inputDictionary.length ; j++) {
+//       if (inputData[i].text === inputDictionary[j]) {
+//         found = true;
+//       }
 //     }
+//     if (!found) {
+//      absentWords.push(inputData[i].text);
+//     }
+//   } 
+
+//   if (absentWords.length) {
+//     return "Unreadable message";
+//   } else {
+//     return resultMessage;
 //   }
-//   return diffs
+  
+//   function sortByCoordinates(arr) {
+//     for (let i = 0, endI = arr.length - 1; i < endI; i++) {
+//       for (let j = 0, endJ = endI - i; j < endJ; j++) {
+//         if (arr[j].geometry[0] > arr[j + 1].geometry[0]) {
+//           let swap = arr[j];
+//           arr[j] = arr[j + 1];
+//           arr[j + 1] = swap;
+//         }
+//       }
+//     }
+//     return arr;
+//   }
+
 // }
 
-// console.log(foo(arr))
-// console.log(arr)
+// ALGO - 1
 
-
-const data = [
-  {
-    geometry: [10, 20],
-    text: "James"
-  },
-  {
-    geometry: [20, 40],
-    text: "Bond"
-  },
-  {
-    geometry: [5, 40],
-    text: "Bond"
-  },
-  {
-    geometry: [15, 40],
-    text: "Fuck"
-  }
-]
-
-const dictionary = ['James', 'Bond']
-
-console.log(foo(data, dictionary))
- 
-function foo(inputData, inputDictionary) { 
-  
-  sortByCoordinates(inputData);
-  
-  const textMessages = inputData.map(function (item) {
-    return item.text;
-  });
-  
-  const resultMessage = textMessages.join(' ');
-  
-  inputData.forEach(function (item) {
-    item.geometry[0] = Math.log10(Math.sqrt(item.geometry[0] * Math.pow(2, 4)) / 256);
-    item.geometry[1] = Math.log10(Math.sqrt(item.geometry[1] * Math.pow(2, 4)) / 256);
-  }); 
-
-  const absentWords = [];
-  for (let i = 0; i <= inputData.length - 1; i++) {
-    let found = false;
-    for (let j = 0; j <= inputDictionary.length ; j++) {
-      if (inputData[i].text === inputDictionary[j]) {
-        found = true;
-      }
+function sumZero(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let sum = arr[left] + arr[right]
+    if (sum === 0) {
+      return [arr[left], arr[right]]
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
     }
-    if (!found) {
-     absentWords.push(inputData[i].text);
-    }
-  } 
-
-  if (absentWords.length) {
-    return "Unreadable message";
-  } else {
-    return resultMessage;
   }
-  
-  function sortByCoordinates(arr) {
-    for (let i = 0, endI = arr.length - 1; i < endI; i++) {
-      for (let j = 0, endJ = endI - i; j < endJ; j++) {
-        if (arr[j].geometry[0] > arr[j + 1].geometry[0]) {
-          let swap = arr[j];
-          arr[j] = arr[j + 1];
-          arr[j + 1] = swap;
-        }
-      }
-    }
-    return arr;
-  }
+}  
 
-}
-
-
-
- 
+console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 3, 10]))
