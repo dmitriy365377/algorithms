@@ -841,9 +841,9 @@ function args_count() {
 
 //console.log(add(3)(4) === 7);
 
-Number.prototype.add = function (num) {
-  return this + num
-}
+// Number.prototype.add = function (num) {
+//   return this + num
+// }
 
 //console.log(4..add(3) === 7);
 
@@ -871,13 +871,58 @@ Number.prototype.add = function (num) {
 
 const arr = [[1, 2, 3], [1, 4, 5], [[[[[[[[[[[5]]]]]]]]]]]]; // [1, 2, 3, 1, 4, 5, 5]
 
-function flat(arr) {
-  return arr.reduce((prev, cur) => {
-    if (Array.isArray(prev)) {
-      prev.concat(cur)
+// function flat(arr) {
+//   return arr.reduce((prev, cur) => {
+//     if (Array.isArray(cur)) {
+//       return [...prev, ...flat(cur)]
+//     }
+//     return [...prev, cur]
+//   }, [])
+// }
+
+
+const flat = (arr) => arr.reduce((acc, item) => Array.isArray(item) ? [...acc, ...flat(item)] : [...acc, item], [])
+
+// console.log(flat(arr));
+
+
+// const str = 'AASSAABBBBSSSS' // A4B4S4
+
+// function RLE(str) {
+//   let prev = '';
+//   let counter = 1;
+//   let result = '';
+//   for (const letter of str) {
+//     if (prev === letter) {
+//       counter++;
+//     } else {
+//       result += prev + (counter > 1 ? counter : '')
+//       counter = 1;
+//       prev = letter;
+//     }
+//   }
+//   return result + prev + (counter > 1 ? counter : '');
+// }
+
+
+
+// console.log(RLE(str));
+
+const str = 'диороид';
+
+function palindrome(str) {
+  let left = 0;
+  let right = str.length - 1;
+  while (left <= right) {
+    if (str[left] !== str[right]) {
+      return false;
+    } else {
+      right--;
+      left++;
     }
-    return 
-  }, [])
+  }
+  return true;
 }
 
-console.log(flat(arr));
+
+console.log(palindrome(str));
