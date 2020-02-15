@@ -747,17 +747,17 @@ function args_count() {
 // const dictionary = ['James', 'Bond']
 
 // console.log(foo(data, dictionary))
- 
+
 // function foo(inputData, inputDictionary) { 
-  
+
 //   sortByCoordinates(inputData);
-  
+
 //   const textMessages = inputData.map(function (item) {
 //     return item.text;
 //   });
-  
+
 //   const resultMessage = textMessages.join(' ');
-  
+
 //   inputData.forEach(function (item) {
 //     item.geometry[0] = Math.log10(Math.sqrt(item.geometry[0] * Math.pow(2, 4)) / 256);
 //     item.geometry[1] = Math.log10(Math.sqrt(item.geometry[1] * Math.pow(2, 4)) / 256);
@@ -781,7 +781,7 @@ function args_count() {
 //   } else {
 //     return resultMessage;
 //   }
-  
+
 //   function sortByCoordinates(arr) {
 //     for (let i = 0, endI = arr.length - 1; i < endI; i++) {
 //       for (let j = 0, endJ = endI - i; j < endJ; j++) {
@@ -799,19 +799,85 @@ function args_count() {
 
 // ALGO - 1
 
-function sumZero(arr) {
-  let left = 0;
-  let right = arr.length - 1;
-  while (left < right) {
-    let sum = arr[left] + arr[right]
-    if (sum === 0) {
-      return [arr[left], arr[right]]
-    } else if (sum > 0) {
-      right--;
-    } else {
-      left++;
-    }
-  }
-}  
+// function sumZero(arr) {
+//   let left = 0;
+//   let right = arr.length - 1;
+//   while (left < right) {
+//     let sum = arr[left] + arr[right]
+//     if (sum === 0) {
+//       return [arr[left], arr[right]]
+//     } else if (sum > 0) {
+//       right--;
+//     } else {
+//       left++;
+//     }
+//   }
+// }  
 
-console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 3, 10]))
+// console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 3, 10]))
+
+
+// function sum(params) {
+//   let total = params;
+//   function sum2(int) {
+//     total += int
+//     return sum2;
+//   }
+//   sum2.valueOf = () => total;
+//   return sum2;
+// }
+
+
+//https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf
+
+//console.log(+sum(2)(3)(4)(5) === 14);
+
+
+// function add(a) {
+//   return function (b) {
+//     return a + b
+//   }
+// } 
+
+//console.log(add(3)(4) === 7);
+
+Number.prototype.add = function (num) {
+  return this + num
+}
+
+//console.log(4..add(3) === 7);
+
+// function fizzBuzz(int) {
+//   for (let i = 1; i <= int; i++) {
+//     if (i % 15 === 0) {
+//       console.log('fizz')
+//     } else if (i % 5 === 0) {
+//       console.log('buzz')
+//     } else if (i % 3 === 0) {
+//       console.log('fizzBuzz')
+//     } else {
+//       console.log(i)
+//     }
+//   }
+// }
+
+// 3 === 'fizz'
+// 5 === 'buzz'
+// 3 and 5 === 'fizzBuzz'
+//console.log(fizzBuzz(20));
+
+
+
+
+const arr = [[1, 2, 3], [1, 4, 5], [[[[[[[[[[[5]]]]]]]]]]]]; // [1, 2, 3, 1, 4, 5, 5]
+
+function flat(arr) {
+  return arr.reduce((prev, cur) => {
+    if (Array.isArray(prev)) {
+      prev.concat(cur)
+    }
+    return 
+  }, [])
+}
+
+console.log(flat(arr));
