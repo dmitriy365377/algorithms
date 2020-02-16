@@ -937,36 +937,63 @@ function palindrome(str) {
 // numbers in the array, but it will be sorted 
 
 
-function countUniqueValues(arr) {
-  if (arr.length === 0) return 0
-  let i = 0
-  for (j = 1; j < arr.length ; j++) {
-    if (arr[i] !== arr[j]) {
-      i++;
-      arr[i] = arr[j]
-    }
-    
-  }
-  return i + 1 
-}
+// function countUniqueValues(arr) {
+//   if (arr.length === 0) return 0
+//   let i = 0
+//   for (j = 1; j < arr.length ; j++) {
+//     if (arr[i] !== arr[j]) {
+//       i++;
+//       arr[i] = arr[j]
+//     }
 
-//console.log(countUniqueValues([1, 1, 1, 1, 2])) // 2 unique values  
+//   }
+//   return i + 1 
+// }
 
-// да я даже не решал
-//                         ( (.)(.) )  
 
-// Можно еще так наверно ща поппробуем
+// console.log(climbingLeaderboard([100, 100, 90, 80, 75, 60], [50, 65, 77, 90, 102]))
 
-// function test(arr) {
-//   const obj = {};
-//   const arr = [];
-//   for (const prop of arr) {
-//     if (!obj[prop]) {
-//       obj[prop] = 1;
-//       arr.push(prop)
-//     } else {
-//       obj[prop]++;
+// function climbingLeaderboard(scores, alice) {
+
+//   const item = alice.shift()
+//   console.log(item)
+
+//   scores.push(item)
+//   console.log('scores', scores)
+
+//   arrSort = scores.sort((a, b) => {
+//     return b - a
+//   })
+
+//   let result = []
+
+//   for (let num of arrSort) {
+//     if (!result.includes(num)) {
+//       result.push(num)
 //     }
 //   }
-//   return arr.length;
+
+//   return result.length
 // }
+
+const arr1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+function binSearch(arr, searchInt) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (arr[mid] === searchInt) {
+      return mid;
+    } else if (arr[mid] > searchInt) {
+      right = mid - 1;
+    } else if (arr[mid] < searchInt) {
+      left = mid + 1;
+    }
+  }
+
+  return false;
+}
+
+console.log(binSearch(arr1, 44));
