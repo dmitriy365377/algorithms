@@ -1080,8 +1080,11 @@ function capitalize(s) {
     if (index % 2) {
       array.push(el.toUpperCase())
     } else {
-      
+
     }
   })
   return array
 };
+
+
+/// hi hi
