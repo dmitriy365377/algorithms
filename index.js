@@ -869,7 +869,7 @@ function args_count() {
 
 
 
-const arr = [[1, 2, 3], [1, 4, 5], [[[[[[[[[[[5]]]]]]]]]]]]; // [1, 2, 3, 1, 4, 5, 5]
+// const arr = [[1, 2, 3], [1, 4, 5], [[[[[[[[[[[5]]]]]]]]]]]]; // [1, 2, 3, 1, 4, 5, 5]
 
 // function flat(arr) {
 //   return arr.reduce((prev, cur) => {
@@ -976,24 +976,112 @@ function palindrome(str) {
 //   return result.length
 // }
 
-const arr1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+// const arr1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-function binSearch(arr, searchInt) {
-  let left = 0;
-  let right = arr.length - 1;
+// function binSearch(arr, searchInt) {
+//   let left = 0;
+//   let right = arr.length - 1;
 
-  while (left <= right) {
-    let mid = Math.floor((left + right) / 2);
-    if (arr[mid] === searchInt) {
-      return mid;
-    } else if (arr[mid] > searchInt) {
-      right = mid - 1;
-    } else if (arr[mid] < searchInt) {
-      left = mid + 1;
+//   while (left <= right) {
+//     let mid = Math.floor((left + right) / 2);
+//     if (arr[mid] === searchInt) {
+//       return mid;
+//     } else if (arr[mid] > searchInt) {
+//       right = mid - 1;
+//     } else if (arr[mid] < searchInt) {
+//       left = mid + 1;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(binSearch(arr1, 44));
+
+
+//Напиши в вк как будешь готов, я зайду в хэнг
+
+// const arr = [1, 22, 91, 25, 33, 66, 7, 8, 5, 9, 23, 47];
+
+// function sort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let maxEl = arr[0];
+//     for (let j = 0; j < arr.length - i; j++) {
+//       if (arr[j] > maxEl) {
+//         maxEl = arr[j];
+//       }
+//     }
+
+//     let maxInd = arr.indexOf(maxEl);
+//     let buff = arr[arr.length - (i + 1)]
+
+//     arr[arr.length - (i + 1)] = maxEl;
+//     arr[maxInd] = buff;
+//   }
+//   return arr;
+// }
+
+// console.log(sort(arr));
+
+
+
+// const selectionSort = arr => {
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     let indexMin = i;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[indexMin] > arr[j]) {
+//         indexMin = j;
+//       }
+//     }
+//     if (indexMin !== i) {
+//       [arr[i], arr[indexMin]] = [arr[indexMin], arr[i]];
+//     }
+//   }
+//   return arr;
+// };
+
+
+// function InsertionSort(A)  {                               // отсортировать по возрастанию.
+//   var n = A.length;
+//   for (var i = 0; i < n; i++) {
+//     var v = A[i], j = i - 1;
+//     while (j >= 0 && A[j] > v) { A[j + 1] = A[j]; j--; }
+//     A[j + 1] = v;
+//   }
+//   return A;    // На выходе сортированный по возрастанию массив A.
+// }
+
+// console.log(smartSum([1,2],3))
+
+// function smartSum(...data){
+//   // let r = [];
+//   // data.forEach(el => Array.isArray(el) ? r.concat(smartSum(el)) : r.push(el) )
+//   // return r
+
+//   data
+// }
+
+
+// function smartSum(...array){ 
+//   for (let i = 0; i < array.length; i++) {
+//       if(array[i] instanceof Array){
+//           array.splice.apply(array,[i,1].concat(array[i]));
+//           i--;
+//       }
+//   };
+//   return array.reduce((acc,el) => acc + el);
+// }
+
+console.log(capitalize("abcdef"))
+
+function capitalize(s) {
+  const strSplit = s.split('')
+  const array = []
+  strSplit.forEach((el, index) => { 
+    if (index % 2) {
+      array.push(el.toUpperCase())
+    } else {
+      
     }
-  }
-
-  return false;
-}
-
-console.log(binSearch(arr1, 44));
+  })
+  return array
+};
