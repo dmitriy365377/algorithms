@@ -1121,36 +1121,66 @@ function args_count() {
 
 //Бин поиск
 
-function search(arr, num) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === num) {
-      return i
-    } 
+// function search(arr, num) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === num) {
+//       return i
+//     } 
+//   }
+//   return -1
+// }
+
+
+
+// function searchBin(arr, num) {
+//   let left = 0;
+//   let right = arr.length - 1;
+
+//   while (left <= right) {
+//     let mid = Math.floor((left + right) / 2);
+//     if (arr[mid] === num) {
+//       return mid
+//     } else if (arr[mid] > num) {
+//       right = mid - 1
+//     } else if (arr[mid] < num) {
+//       left = mid + 1
+//     }
+//   }
+//   return false
+// } 
+
+// console.log(search([1, 2, 3, 4, 5, 6], 4))//3
+
+// Recursion 
+function calculate(num) {
+  if (num === 1) {
+    return num
   }
-  return -1
+  return num + calculate(num - 1)
+}
+
+console.log(calculate(3))
+
+
+// Helper Method Recursion
+
+function collectOdds(arr) {
+  let res = []; 
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return false
+    }
+    if (helperInput[0] % 2 !== 0) {
+      res.push(helperInput[0])
+    }
+    helper(helperInput.slice(1))
+  } 
+  helper(arr)
+  return res
 }
 
 
 
-function searchBin(arr, num) {
-  let left = 0;
-  let right = arr.length - 1;
-
-  while (left <= right) {
-    let mid = Math.floor((left + right) / 2);
-    if (arr[mid] === num) {
-      return mid
-    } else if (arr[mid] > num) {
-      right = mid - 1
-    } else if (arr[mid] < num) {
-      left = mid + 1
-    }
-  }
-  return false
-} 
-
-console.log(search([1, 2, 3, 4, 5, 6], 4))//3
-
-
+console.log(collectOdds([1,2,3,4,5,6,7,8,9]))
 
 
