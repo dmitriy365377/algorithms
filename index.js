@@ -881,7 +881,7 @@ function args_count() {
 // }
 
 
-const flat = (arr) => arr.reduce((acc, item) => Array.isArray(item) ? [...acc, ...flat(item)] : [...acc, item], [])
+// const flat = (arr) => arr.reduce((acc, item) => Array.isArray(item) ? [...acc, ...flat(item)] : [...acc, item], [])
 
 // console.log(flat(arr));
 
@@ -908,21 +908,21 @@ const flat = (arr) => arr.reduce((acc, item) => Array.isArray(item) ? [...acc, .
 
 // console.log(RLE(str));
 
-const str = 'диороид';
+// const str = 'диороид';
 
-function palindrome(str) {
-  let left = 0;
-  let right = str.length - 1;
-  while (left <= right) {
-    if (str[left] !== str[right]) {
-      return false;
-    } else {
-      right--;
-      left++;
-    }
-  }
-  return true;
-}
+// function palindrome(str) {
+//   let left = 0;
+//   let right = str.length - 1;
+//   while (left <= right) {
+//     if (str[left] !== str[right]) {
+//       return false;
+//     } else {
+//       right--;
+//       left++;
+//     }
+//   }
+//   return true;
+// }
 
 
 // console.log(palindrome(str));
@@ -1071,20 +1071,47 @@ function palindrome(str) {
 //   return array.reduce((acc,el) => acc + el);
 // }
 
-console.log(capitalize("abcdef"))
+// console.log(capitalize("abcdef"))
 
-function capitalize(s) {
-  const strSplit = s.split('')
-  const array = []
-  strSplit.forEach((el, index) => { 
-    if (index % 2) {
-      array.push(el.toUpperCase())
-    } else {
+// function capitalize(s) {
+//   const strSplit = s.split('')
+//   const array = []
+//   strSplit.forEach((el, index) => { 
+//     if (index % 2) {
+//       array.push(el.toUpperCase())
+//     } else {
 
-    }
-  })
-  return array
-};
+//     }
+//   })
+//   return array
+// };
 
 
 /// hi hi
+
+
+
+
+
+// write a function called maxSubarraySum which accepts an array
+// of integers and a number called n. The function 
+// should calculate the maximum sum of n consecutive 
+// elements in the array.
+
+
+function maxSubarraySum(arr, num) {
+  let max = -Infinity
+  for (let i = 0; i < arr.length - num + 1; i++) {
+    temp = 0
+    for (let j = 0; j < num; j ++) {
+      temp += arr[i + j]
+    }
+    if (temp > max) {
+      max = temp
+    }
+  }
+  console.log(temp,max)
+  return max
+}
+  
+maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
