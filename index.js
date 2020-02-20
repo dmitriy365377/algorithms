@@ -1099,19 +1099,58 @@ function args_count() {
 // elements in the array.
 
 
-function maxSubarraySum(arr, num) {
-  let max = -Infinity
-  for (let i = 0; i < arr.length - num + 1; i++) {
-    temp = 0
-    for (let j = 0; j < num; j ++) {
-      temp += arr[i + j]
-    }
-    if (temp > max) {
-      max = temp
+// function maxSubarraySum(arr, num) {
+//   let max = -Infinity
+//   for (let i = 0; i < arr.length - num + 1; i++) {
+//     temp = 0
+//     for (let j = 0; j < num; j ++) {
+//       temp += arr[i + j]
+//     }
+//     if (temp > max) {
+//       max = temp
+//     }
+//   }
+//   console.log(temp,max)
+//   return max
+// }
+  
+// maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
+
+
+
+
+//Бин поиск
+
+function search(arr, num) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      return i
+    } 
+  }
+  return -1
+}
+
+
+
+function searchBin(arr, num) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (arr[mid] === num) {
+      return mid
+    } else if (arr[mid] > num) {
+      right = mid - 1
+    } else if (arr[mid] < num) {
+      left = mid + 1
     }
   }
-  console.log(temp,max)
-  return max
-}
-  
-maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
+  return false
+} 
+
+console.log(search([1, 2, 3, 4, 5, 6], 4))//3
+
+
+
+
