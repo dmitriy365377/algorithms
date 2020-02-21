@@ -1152,35 +1152,88 @@ function args_count() {
 // console.log(search([1, 2, 3, 4, 5, 6], 4))//3
 
 // Recursion 
-function calculate(num) {
-  if (num === 1) {
-    return num
-  }
-  return num + calculate(num - 1)
-}
+// function calculate(num) {
+//   if (num === 1) {
+//     return num
+//   }
+//   return num + calculate(num - 1)
+// }
 
-console.log(calculate(3))
+// console.log(calculate(3))
 
 
 // Helper Method Recursion
 
-function collectOdds(arr) {
-  let res = []; 
-  function helper(helperInput) {
-    if (helperInput.length === 0) {
-      return false
-    }
-    if (helperInput[0] % 2 !== 0) {
-      res.push(helperInput[0])
-    }
-    helper(helperInput.slice(1))
-  } 
-  helper(arr)
-  return res
+// function collectOdds(arr) {
+//   let res = []; 
+//   function helper(helperInput) {
+//     if (helperInput.length === 0) {
+//       return false
+//     }
+//     if (helperInput[0] % 2 !== 0) {
+//       res.push(helperInput[0])
+//     }
+//     helper(helperInput.slice(1))
+//   } 
+//   helper(arr)
+//   return res
+// }
+
+
+
+// console.log(collectOdds([1,2,3,4,5,6,7,8,9]))
+
+
+
+// for arrays, use methods like slice, the spread operator, and concat 
+// that make copies of arrays so you do not mutate them 
+
+
+
+
+// Alternate capitalization
+
+
+//Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and 
+//return as shown below. Index 0 will be considered even. 
+//For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples. 
+//The input will be a lowercase string with no spaces. 
+//Good luck!
+
+
+
+function capitalize(s) {
+  const newArr = []
+  const oddArr = s.split('').map((x, index) => (index % 2 !== 0) ? x : x.toUpperCase()).join('')
+  const evenArr = s.split('').map((x, index) => (index % 2 !== 0) ? x.toUpperCase() : x).join('')
+  newArr.push(oddArr,evenArr)
+  return newArr
+};
+
+
+console.log(capitalize("abcdef"))
+
+//['AbCdEf', 'aBcDeF']
+
+function capitalize(s) {
+  let a = ''
+  let b = ''
+
+  let isUpper = true
+
+  for (let i = 0; i < s.length; i++) {
+      const char = s[i]
+
+      if (isUpper) {
+          a += char.toUpperCase()
+          b += char.toLowerCase()
+      } else {
+          a += char.toLowerCase()
+          b += char.toUpperCase()
+      }
+
+      isUpper = !isUpper
+  }
+
+  return [a, b]
 }
-
-
-
-console.log(collectOdds([1,2,3,4,5,6,7,8,9]))
-
-
