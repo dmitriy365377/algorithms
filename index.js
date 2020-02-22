@@ -1202,38 +1202,109 @@ function args_count() {
 
 
 
-function capitalize(s) {
-  const newArr = []
-  const oddArr = s.split('').map((x, index) => (index % 2 !== 0) ? x : x.toUpperCase()).join('')
-  const evenArr = s.split('').map((x, index) => (index % 2 !== 0) ? x.toUpperCase() : x).join('')
-  newArr.push(oddArr,evenArr)
-  return newArr
-};
+// function capitalize(s) {
+//   const newArr = []
+//   const oddArr = s.split('').map((x, index) => (index % 2 !== 0) ? x : x.toUpperCase()).join('')
+//   const evenArr = s.split('').map((x, index) => (index % 2 !== 0) ? x.toUpperCase() : x).join('')
+//   newArr.push(oddArr,evenArr)
+//   return newArr
+// };
 
 
-console.log(capitalize("abcdef"))
+// console.log(capitalize("abcdef"))
 
-//['AbCdEf', 'aBcDeF']
+// //['AbCdEf', 'aBcDeF']
 
-function capitalize(s) {
-  let a = ''
-  let b = ''
+// function capitalize(s) {
+//   let a = ''
+//   let b = ''
 
-  let isUpper = true
+//   let isUpper = true
 
-  for (let i = 0; i < s.length; i++) {
-      const char = s[i]
+//   for (let i = 0; i < s.length; i++) {
+//       const char = s[i]
 
-      if (isUpper) {
-          a += char.toUpperCase()
-          b += char.toLowerCase()
-      } else {
-          a += char.toLowerCase()
-          b += char.toUpperCase()
-      }
+//       if (isUpper) {
+//           a += char.toUpperCase()
+//           b += char.toLowerCase()
+//       } else {
+//           a += char.toLowerCase()
+//           b += char.toUpperCase()
+//       }
 
-      isUpper = !isUpper
-  }
+//       isUpper = !isUpper
+//   }
 
-  return [a, b]
+//   return [a, b]
+// }
+
+
+// // Sort the odd
+
+// //You have an array of numbers.
+// //Your task is to sort ascending odd numbers but even numbers must be on their places.
+
+// //Zero isn't an odd number and you don't need to move it. If you have an empty array, you need to return it.
+
+
+// function sortArray(arr) {
+
+// } 
+
+// sortArray([5, 3, 2, 8, 1, 4])
+
+
+
+
+
+// Bubble Sort
+
+// function bubbleSort(arr) {
+//   for (let i = arr.length; i > 0; i--) {
+//     for (let j = 0; j < i - 1; j++) {
+//       //5          //4
+//       if (arr[j] > arr[j + 1]) {
+//         temp = arr[j]
+//         arr[j] = arr[j + 1]
+//         arr[j + 1] = temp
+//       }
+//     }
+//   }
+//   return arr
+// }  
+// console.log(bubbleSort([2, 5, 4, 3, 1, 7]))
+
+
+//Sort the odd
+
+// function sortArray(array) {
+//  const odd = array.filter((x) => x % 2).sort((a,b) => a - b);
+//  return array.map((x) => x % 2 ? odd.shift() : x);
+// }
+
+// console.log(sortArray([5, 3, 2, 8, 1, 4]))
+
+
+function list(names) { 
+  const copy = []   
+  for (let i = 0; i < names.length; i++) { 
+    copy.push(names[i].name)
+  }  
+  return copy
 }
+
+
+console.log(list([
+  { name: 'Bart' },
+  { name: 'Lisa' },
+  { name: 'Maggie' }
+]))
+// returns 'Bart, Lisa & Maggie'
+
+
+
+
+
+
+
+
