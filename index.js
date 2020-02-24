@@ -1285,19 +1285,36 @@ function args_count() {
 // console.log(sortArray([5, 3, 2, 8, 1, 4]))
 
 
-function list(names) { 
-  const copy = []   
-  for (let i = 0; i < names.length; i++) { 
+function list(names) {
+  const copy = []
+  for (let i = 0; i < names.length; i++) {
     copy.push(names[i].name)
-  }  
-  return copy
+  }
+  if (copy.length >= 3) {
+    newArr = copy.reverse()
+    newArr.splice(0, 2, `${newArr[1]} & ${newArr[0]}`)
+    const b = newArr.reverse()
+    return b.join()
+  } else if (copy.length === 2) {
+    const c = `${copy[0]} & ${copy[1]}`
+    return c
+  } else if (copy.length === 1) {
+    const d = `${copy[0]}`
+    return d 
+  } else if (copy.length === 0) {
+    return ''
+  } 
 }
+
+ 
+
+// Must work with many names - Expected: 'Bart, Lisa, Maggie, Homer & Marge', instead got: 'Bart,Lisa,Maggie,Homer & Marge'
 
 
 console.log(list([
   { name: 'Bart' },
   { name: 'Lisa' },
-  { name: 'Maggie' }
+  // { name: 'Maggie' }
 ]))
 // returns 'Bart, Lisa & Maggie'
 
