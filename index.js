@@ -1325,21 +1325,34 @@ function args_count() {
 
 //Where my anagrams at?
 
-function anagrams(word, words) {
+// function anagrams(word, words) {
+//   let arr = []
+//   const sortWord = word.split("").sort().join("");
+
+//   for (let i = 0; i < words.length; i++) {
+//     let sorted = words[i].split("").sort().join("");
+//     if (sortWord === sorted) {
+//       arr.push(words[i])
+//     }
+//   }
+//   return arr
+// } 
+
+// anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])
+
+
+// Build a square 
+
+function generateShape(int) {
   let arr = []
-  const sortWord = word.split("").sort().join("");
-
-  for (let i = 0; i < words.length; i++) {
-    let sorted = words[i].split("").sort().join("");
-    if (sortWord === sorted) {
-      arr.push(words[i])
-    }
+  for (let i = 0; i < int ; i++) {
+    arr.push("+".repeat(int))
   }
-  return arr
-} 
+  return arr.join('\n')
+}
 
-anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])
 
+console.log(generateShape(8))
 
 
 
