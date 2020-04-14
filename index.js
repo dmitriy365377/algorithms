@@ -1356,17 +1356,33 @@ function args_count() {
 
 
 
-function friend(friends) {
-  const filterFriends = friends.filter(word => {
-    return word.length === 4
-  }) 
-  return filterFriends
+// function friend(friends) {
+//   const filterFriends = friends.filter(word => {
+//     return word.length === 4
+//   }) 
+//   return filterFriends
+// }
+
+
+// console.log(friend(["Ryan", "Kieran", "Mark"])) 
+
+
+
+
+function getCount(str) {
+  let count = 0
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  for(let char of str.toLowerCase()) {
+    if(vowels.includes(char)) {
+      count++
+    }
+  }
+  return count
 }
 
 
-console.log(friend(["Ryan", "Kieran", "Mark"])) 
 
-
+getCount("abracadabra")
 
 
 
