@@ -1343,16 +1343,32 @@ function args_count() {
 
 // Build a square 
 
-function generateShape(int) {
-  let arr = []
-  for (let i = 0; i < int ; i++) {
-    arr.push("+".repeat(int))
-  }
-  return arr.join('\n')
+// function generateShape(int) {
+//   let arr = []
+//   for (let i = 0; i < int ; i++) {
+//     arr.push("+".repeat(int))
+//   }
+//   return arr.join('\n')
+// }
+
+
+// console.log(generateShape(8))
+
+
+
+function friend(friends) {
+  const filterFriends = friends.filter(word => {
+    return word.length === 4
+  }) 
+  return filterFriends
 }
 
 
-console.log(generateShape(8))
+console.log(friend(["Ryan", "Kieran", "Mark"])) 
+
+
+
+
 
 
 
