@@ -1369,21 +1369,32 @@ function args_count() {
 
 
 
-function getCount(str) {
-  let count = 0
-  const vowels = ['a', 'e', 'i', 'o', 'u']
-  for(let char of str.toLowerCase()) {
-    if(vowels.includes(char)) {
-      count++
-    }
-  }
-  return count
+// function getCount(str) {
+//   let count = 0
+//   const vowels = ['a', 'e', 'i', 'o', 'u']
+//   for(let char of str.toLowerCase()) {
+//     if(vowels.includes(char)) {
+//       count++
+//     }
+//   }
+//   return count
+// }
+
+
+
+// getCount("abracadabra")
+
+
+
+
+function proofread(str) {  
+  // str = str.replace(/\s+/g, '').toLowerCase(); 
+  // console.log(str)
+  return str.split`. `.map(v=>v[0].toUpperCase()+v.slice(1).toLowerCase()).join`. `.replace(/ie/g,'ei')  
 }
 
 
-
-getCount("abracadabra")
-
+proofread("ShE deCIeved HiM.")
 
 
 
