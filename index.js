@@ -1398,6 +1398,16 @@ proofread("ShE deCIeved HiM.")
 
 
 
+function pluck(array, name) { 
+  const bb = Array.from(new Set(array.map(obj => obj[name]))); 
+  return bb
+}
+
+
+pluck([{a:1}, {a:2}], 'a')
+
+
+
 
 
 
