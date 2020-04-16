@@ -1408,14 +1408,26 @@ pluck([{ a: 1 }, { a: 2 }], 'a')
 
 
 function removeDuplicateWords(s) {
-  const uniqueList = s.split(' ').filter(function (item, i, allItems) {
+  const uniqueList = s.split(' ').filter(function (item, i, allItems) { 
     return i == allItems.indexOf(item);
-  }).join(' ');
-  console.log(s.split(' '))
-  console.log(uniqueList)
+  }).join(' '); 
   return uniqueList
 }
 
+
+
+// const removeDuplicateWords = s => [...new Set(s.split(' '))].join(' ')
+
+function removeDuplicateWords(s) {
+  const words = s.split(" ");
+  const obj = {}; 
+  for(const word of words) {
+    obj[word] = true;
+  }
+  console.log(obj)
+  console.log(Object.keys(obj))
+  return Object.keys(obj).join(" ");
+}
 
 
 
@@ -1424,4 +1436,12 @@ removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta ga
 
 
 
+// function findUnique(numbers) {
+//   // Return the unique number
+// }
 
+
+
+
+
+// findUnique([1, 8, 4, 4, 6, 1, 8])
