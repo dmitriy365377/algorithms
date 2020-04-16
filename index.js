@@ -1398,16 +1398,29 @@ proofread("ShE deCIeved HiM.")
 
 
 
-function pluck(array, name) { 
-  const bb = Array.from(new Set(array.map(obj => obj[name]))); 
+function pluck(array, name) {
+  const bb = Array.from(new Set(array.map(obj => obj[name])));
   return bb
 }
 
 
-pluck([{a:1}, {a:2}], 'a')
+pluck([{ a: 1 }, { a: 2 }], 'a')
+
+
+function removeDuplicateWords(s) {
+  const uniqueList = s.split(' ').filter(function (item, i, allItems) {
+    return i == allItems.indexOf(item);
+  }).join(' ');
+  console.log(s.split(' '))
+  console.log(uniqueList)
+  return uniqueList
+}
 
 
 
+
+
+removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta');
 
 
 
