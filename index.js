@@ -1423,25 +1423,31 @@ function removeDuplicateWords(s) {
   const obj = {}; 
   for(const word of words) {
     obj[word] = true;
-  }
-  console.log(obj)
-  console.log(Object.keys(obj))
+  } 
   return Object.keys(obj).join(" ");
 }
 
 
 
 
-removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta');
+// removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta');
 
 
 
-// function findUnique(numbers) {
-//   // Return the unique number
-// }
-
-
-
-
-
-// findUnique([1, 8, 4, 4, 6, 1, 8])
+function findUnique(numbers) {
+  let obj = {}
+  for (let i = 0; i < numbers.length; i++) {
+    if (obj[numbers[i]]) {
+      obj[numbers[i]]++
+    } else {
+      obj[numbers[i]] = 1
+    }
+  }
+   
+  for (let num in obj) {
+   if(obj[num] === 1){ 
+    return parseFloat(num)
+   } 
+  }   
+} 
+console.log(findUnique([1, 8, 4, 4, 6, 1, 8]))
