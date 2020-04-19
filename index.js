@@ -1494,9 +1494,9 @@ function greetDevelopers(list) {
 }
 
 
-const greetDevelopers = list => list.map(
-  dev => ({ ...dev, greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?` })
-);
+// const greetDevelopers = list => list.map(
+//   dev => ({ ...dev, greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?` })
+// );
 
 
 var list1 = [
@@ -1510,16 +1510,22 @@ var bb = {
   greeting: 'Hi Sofia, what do you like the most about Java?'
 }
 
-console.log(greetDevelopers(list1));
+// console.log(greetDevelopers(list1));
 
 
 
 // 2)
 
 
+function convertHashToArray(obj) {
+  const convertObjToArray = Object.entries(obj).sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+  console.log(convertObjToArray)
+  return convertObjToArray
+}
 
+convertHashToArray({name: "Jeremy", age: 24})
 
-
+// [["age", 24], ["name", "Jeremy"]]
 
 
 
