@@ -1450,4 +1450,34 @@ function findUnique(numbers) {
    } 
   }   
 } 
-console.log(findUnique([1, 8, 4, 4, 6, 1, 8]))
+// console.log(findUnique([1, 8, 4, 4, 6, 1, 8]))
+
+
+function sumArray(arr) {
+  console.log(arr.indexOf(4))
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = arr.length - 1; j >= 0; j--) {
+      if (arr[i] + (arr[j]) === 0) {
+        return console.log([arr.indexOf(arr[i]), arr.indexOf(arr[j])])
+      }
+    }
+  }
+}
+
+ 
+sumArray([1, -2, 3, 4, 5, 2, -1])
+
+//Дан массив чисел, найти индексы первой пары чисел в сумме дающих ноль // => [1, 5]
+
+
+
+const myArray = [4, 8, 2, 7, 5];
+
+
+function processArray(arr, callback) {
+  return arr.map(el => callback(el))
+}
+ 
+
+
+ 
