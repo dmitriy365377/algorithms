@@ -1465,7 +1465,7 @@ function sumArray(arr) {
 }
 
  
-sumArray([1, -2, 3, 4, 5, 2, -1])
+// sumArray([1, -2, 3, 4, 5, 2, -1])
 
 //Дан массив чисел, найти индексы первой пары чисел в сумме дающих ноль // => [1, 5]
 
@@ -1477,7 +1477,49 @@ const myArray = [4, 8, 2, 7, 5];
 function processArray(arr, callback) {
   return arr.map(el => callback(el))
 }
- 
 
 
- 
+
+// Нужно решить 2 задачки 
+
+// 1)
+
+function greetDevelopers(list) {
+  const arrayOfStrings = list.map((el) => {
+    let arr = Object.assign({}, el);
+    arr.greeting = `Hi ${arr.firstName}, what do you like the most about ${arr.language}?`;
+    return arr;
+  })
+  return arrayOfStrings;
+}
+
+
+const greetDevelopers = list => list.map(
+  dev => ({ ...dev, greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?` })
+);
+
+
+var list1 = [
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' }
+];
+
+var bb = {
+  firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
+  greeting: 'Hi Sofia, what do you like the most about Java?'
+}
+
+console.log(greetDevelopers(list1));
+
+
+
+// 2)
+
+
+
+
+
+
+
+
