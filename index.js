@@ -1404,6 +1404,17 @@ function pluck(array, name) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 pluck([{ a: 1 }, { a: 2 }], 'a')
 
 
@@ -1529,3 +1540,23 @@ convertHashToArray({name: "Jeremy", age: 24})
 
 
 
+
+
+function min(arr, toReturn) {
+  if (toReturn === 'value') {
+    return Math.min(...arr)
+  } else if (toReturn === 'index') {
+    let min = arr[0];
+    arr.forEach(function (e) {
+      if (e < min) min = e;
+    });
+    return arr.indexOf(min);
+  } 
+}
+
+// function min(a, t) {
+//   if (t==='value') { return Math.min(...a) }
+//   if (t==='index') { return a.indexOf(Math.min(...a)) }
+// }
+
+console.log(min([1,2,3,4,5], 'index'))
