@@ -1559,4 +1559,23 @@ function min(arr, toReturn) {
 //   if (t==='index') { return a.indexOf(Math.min(...a)) }
 // }
 
-console.log(min([1,2,3,4,5], 'index'))
+// console.log(min([1,2,3,4,5], 'index'))
+
+
+
+
+
+ 
+ 
+
+ 
+
+
+function multiply(arr) {
+  return (number) => {
+    const multiplyArr = arr.map((el) => el * number);
+    return multiplyArr;
+  }
+}
+
+console.log(multiply([1, 2, 3])(2))  
