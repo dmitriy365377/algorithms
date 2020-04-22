@@ -1634,3 +1634,19 @@ function f3(x){ return Math.pow(x,2) }
 
 
 console.log(chained([f1,f2,f3])(2)) 
+
+
+
+function add(n) {
+  
+}
+
+
+function add(n) {
+  return function addOne(b) {
+    const number = n + b;
+  return number;
+  }
+}
+ 
+add(1)(3) 
