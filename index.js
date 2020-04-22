@@ -1403,16 +1403,7 @@ function pluck(array, name) {
   return bb
 }
 
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 pluck([{ a: 1 }, { a: 2 }], 'a')
@@ -1561,16 +1552,7 @@ function min(arr, toReturn) {
 
 // console.log(min([1,2,3,4,5], 'index'))
 
-
-
-
-
  
- 
-
- 
-
-
 function multiply(arr) {
   return (number) => {
     const multiplyArr = arr.map((el) => el * number);
@@ -1578,4 +1560,77 @@ function multiply(arr) {
   }
 }
 
-console.log(multiply([1, 2, 3])(2))  
+// console.log(multiply([1, 2, 3])(2))  
+
+// function once(fn) {
+//   return fn;
+// }
+
+// let logOnce = once(console.log)
+// logOnce("foo")
+// logOnce("bar")
+
+
+// var myName;
+// console.log(myName)
+// myName='Alex'
+
+
+// function print() {
+//   console.log(1)
+//   setTimeout(()=>console.log(2),1000)
+//   setTimeout(()=>console.log(3),0)
+//   Promise.resolve().then(()=> console.log(4))
+//   console.log(5)
+// }
+
+// print()
+// setTimeout(()=>console.log(6),50)
+
+
+// function pluck(array, name) {
+//   const bb = Array.from(new Set(array.map(obj => obj[name])));
+//   return bb
+// }
+
+ 
+
+
+// pluck([{ a: 1 }, { a: 2 }], 'a')
+
+
+// function pickBy(obj, filter) {
+
+// }
+
+// pickBy({ a: 2, b: 3, c: 4 }, (key, prop) => prop >= 3)
+
+
+
+
+// function chained(functions) {
+//   return function (num) {
+//     for (let i = 0; i < functions.length; i++) {
+//       sum = functions[i](num);
+//     }
+//     return sum
+//   }
+// }
+
+
+function chained(a) {
+  return function (b) {
+    for (var i = 0; i < a.length; i++) {
+      b = a[i](b)
+    }
+    return b
+   }
+} 
+
+
+function f1(x){ return x*2 }
+function f2(x){ return x+2 }
+function f3(x){ return Math.pow(x,2) }
+
+
+console.log(chained([f1,f2,f3])(2)) 
