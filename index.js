@@ -1650,3 +1650,48 @@ function add(n) {
 }
  
 add(1)(3) 
+
+
+// const var1 = {a: 'qwerty'};
+// var1.a = 'str123';
+// console.log(var1); // что будет выведено тут?
+// let var2 = var1;
+// var2.b = 111;
+// var1.c = 'qwerty';
+// console.log(var1); // что тут?
+
+// var1 = {a: 123, b: 321};
+// console.log(var1); // и что тут? 
+
+
+
+// 1. Написать HTML, подходящий под селектор #my p.announce, .foo.bar li a:hover+span
+
+
+
+ 
+function isBalanced(str) {
+ 
+}
+
+
+// console.log(isBalanced('}{'));                      // false
+// console.log(isBalanced('{{}'));                     // false
+// console.log(isBalanced('{}{}'));                    // true
+// console.log(isBalanced('foo { bar { baz } boo }')); // true
+// console.log(isBalanced('foo { bar { baz }'));       // false
+// console.log(isBalanced('{}}{{}'));                  // false
+
+function add(n) {
+  const sum = function (y) {
+    return add(n + y);
+  }
+  sum.valueOf = function() {
+    return n
+  }
+  return sum
+}
+
+
+
+console.log(add(1)(2))
