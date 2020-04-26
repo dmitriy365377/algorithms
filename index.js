@@ -1682,16 +1682,169 @@ function isBalanced(str) {
 // console.log(isBalanced('foo { bar { baz }'));       // false
 // console.log(isBalanced('{}}{{}'));                  // false
 
-function add(n) {
-  const sum = function (y) {
-    return add(n + y);
-  }
-  sum.valueOf = function() {
-    return n
-  }
-  return sum
+// function add(n) {
+//   const sum = function (y) {
+//     return add(n + y);
+//   }
+//   sum.valueOf = function() {
+//     return n
+//   }
+//   return sum
+// }
+
+
+
+// console.log(add(1)(2))
+
+
+
+// var result = "";
+// var key = 1;
+// switch(key) {
+//   case "1": result += "1";
+//   case "2": result += "2";
+//   case 1: result += "3";
+//   default: result += "4"; break;
+// }
+// console.log(result)
+
+
+ 
+
+// var arr = []
+// arr[0] = 'a'
+// arr[1] = 'b'
+// arr['2'] = 'c'
+// arr['x'] = 'd'
+// arr.y = 'e'
+
+// console.log(arr.length)
+
+// var a = [1,2,3]
+
+// console.log(a.pop(), 'pop')
+// console.log(a.slice(2))
+// console.log(a.slice(-1,3))
+
+
+
+// var a = [[null]]
+// console.log(a)
+
+
+// function f() {console.log(arguments[1])}
+// f(0,1)
+
+
+
+
+// function c(param) {
+//   return {
+//     red:0xff000,
+//     green:0xff00,
+//     blue:0xff
+//   }[param];
+// }
+
+//  var sample = {
+//    v:1
+//  }
+
+//  var o1 = Object.create(sample)
+//  o1.v = 2
+//  sample.v = 5
+//  var o2 = Object.create(sample)
+//  o2.v = 3
+// console.log(o1.v+o2.v+ sample.v)
+
+
+
+
+// var o = { name: "o"}
+
+// function f() {
+//   console.log(this.name)
+// }
+
+// o.f = f
+// o.f()
+
+
+
+
+
+
+
+
+
+
+// var a = 1;
+// var res = ""; 
+// +function(){ a=3; var a; res+= a;}()
+// res+=a;
+// console.log(res)
+
+
+// var n = 1
+// function b(a) {
+//   return n + a;
+// }
+// var n = 2
+// console.log(b(1))
+
+
+
+ 
+
+// function f1() {
+//   return inside()
+//   function inside() {return 'inside'}
+// }
+
+// console.log(f1())
+ 
+
+
+
+// function Proto(){
+
+// }
+
+// Proto.prototype.p = 1
+// var o = new Proto()
+// console.log('p' in o)
+// console.log(o.hasOwnProperty('p'))
+
+
+
+// console.log(typeof new Number(1))
+
+
+
+
+
+// function MyObj() {
+//   this.v = 0;
+// }
+
+// var a = new MyObj;
+// console.log(a.v)
+
+
+
+function flattenAndSort(array) {
+  // Good luck, brave code warrior!
+  return array.flat().sort(function(a, b) {
+    return a - b;
+});;
 }
 
 
 
-console.log(add(1)(2))
+
+console.log(flattenAndSort([[3, 2, 1], [7, 9, 8], [6, 4, 5]]))
+
+console.log('5' == 5)
+console.log(5===5)
+
+ 
