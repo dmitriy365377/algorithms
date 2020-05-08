@@ -1844,7 +1844,30 @@ function flattenAndSort(array) {
 
 console.log(flattenAndSort([[3, 2, 1], [7, 9, 8], [6, 4, 5]]))
 
-console.log('5' == 5)
-console.log(5===5)
+function list(names){
+  const newArr = names.map(item => item.name);
+  const newArr2 = (newArr.slice(0,-2)).concat(newArr.slice(-2).join(' & ')).join(', ')
+  console.log((newArr.slice(0,-2)).concat(newArr.slice(-2)))
+  return newArr2;
+}
+
+
+
+console.log(list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ]))
+// returns 'Bart, Lisa & Maggie'
+
+console.log(list([ {name: 'Bart'}, {name: 'Lisa'} ]))
+// returns 'Bart & Lisa'
+
+console.log(list([ {name: 'Bart'} ]))
+// returns 'Bart'
+
+console.log(list([]))
+// returns '
+
+
+
+
+
 
  
