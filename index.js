@@ -1738,38 +1738,36 @@ function isBalanced(str) {
 
 
 
-// function c(param) {
-//   return {
-//     red:0xff000,
-//     green:0xff00,
-//     blue:0xff
-//   }[param];
-// }
+// // function c(param) {
+// //   return {
+// //     red:0xff000,
+// //     green:0xff00,
+// //     blue:0xff
+// //   }[param];
+// // }
 
-//  var sample = {
-//    v:1
-//  }
+// //  var sample = {
+// //    v:1
+// //  }
 
-//  var o1 = Object.create(sample)
-//  o1.v = 2
-//  sample.v = 5
-//  var o2 = Object.create(sample)
-//  o2.v = 3
-// console.log(o1.v+o2.v+ sample.v)
-
-
+// //  var o1 = Object.create(sample)
+// //  o1.v = 2
+// //  sample.v = 5
+// //  var o2 = Object.create(sample)
+// //  o2.v = 3
+// // console.log(o1.v+o2.v+ sample.v)
 
 
-// var o = { name: "o"}
-
-// function f() {
-//   console.log(this.name)
-// }
-
-// o.f = f
-// o.f()
 
 
+// // var o = { name: "o"}
+
+// // function f() {
+// //   console.log(this.name)
+// // }
+
+// // o.f = f
+// // o.f()
 
 
 
@@ -1778,96 +1776,111 @@ function isBalanced(str) {
 
 
 
-// var a = 1;
-// var res = ""; 
-// +function(){ a=3; var a; res+= a;}()
-// res+=a;
-// console.log(res)
 
 
-// var n = 1
-// function b(a) {
-//   return n + a;
-// }
-// var n = 2
-// console.log(b(1))
+// // var a = 1;
+// // var res = ""; 
+// // +function(){ a=3; var a; res+= a;}()
+// // res+=a;
+// // console.log(res)
+
+
+// // var n = 1
+// // function b(a) {
+// //   return n + a;
+// // }
+// // var n = 2
+// // console.log(b(1))
 
 
 
  
 
-// function f1() {
-//   return inside()
-//   function inside() {return 'inside'}
-// }
+// // function f1() {
+// //   return inside()
+// //   function inside() {return 'inside'}
+// // }
 
-// console.log(f1())
+// // console.log(f1())
  
 
 
 
-// function Proto(){
+// // function Proto(){
 
+// // }
+
+// // Proto.prototype.p = 1
+// // var o = new Proto()
+// // console.log('p' in o)
+// // console.log(o.hasOwnProperty('p'))
+
+
+
+// // console.log(typeof new Number(1))
+
+
+
+
+
+// // function MyObj() {
+// //   this.v = 0;
+// // }
+
+// // var a = new MyObj;
+// // console.log(a.v)
+
+
+
+// function flattenAndSort(array) {
+//   // Good luck, brave code warrior!
+//   return array.flat().sort(function(a, b) {
+//     return a - b;
+// });;
 // }
 
-// Proto.prototype.p = 1
-// var o = new Proto()
-// console.log('p' in o)
-// console.log(o.hasOwnProperty('p'))
 
 
 
-// console.log(typeof new Number(1))
+// console.log(flattenAndSort([[3, 2, 1], [7, 9, 8], [6, 4, 5]]))
 
-
-
-
-
-// function MyObj() {
-//   this.v = 0;
+// function list(names){
+//   const newArr = names.map(item => item.name);
+//   const newArr2 = (newArr.slice(0,-2)).concat(newArr.slice(-2).join(' & ')).join(', ')
+//   console.log((newArr.slice(0,-2)).concat(newArr.slice(-2)))
+//   return newArr2;
 // }
 
-// var a = new MyObj;
-// console.log(a.v)
 
 
+// console.log(list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ]))
+// // returns 'Bart, Lisa & Maggie'
 
-function flattenAndSort(array) {
-  // Good luck, brave code warrior!
-  return array.flat().sort(function(a, b) {
-    return a - b;
-});;
-}
+// console.log(list([ {name: 'Bart'}, {name: 'Lisa'} ]))
+// // returns 'Bart & Lisa'
 
+// console.log(list([ {name: 'Bart'} ]))
+// // returns 'Bart'
 
-
-
-console.log(flattenAndSort([[3, 2, 1], [7, 9, 8], [6, 4, 5]]))
-
-function list(names){
-  const newArr = names.map(item => item.name);
-  const newArr2 = (newArr.slice(0,-2)).concat(newArr.slice(-2).join(' & ')).join(', ')
-  console.log((newArr.slice(0,-2)).concat(newArr.slice(-2)))
-  return newArr2;
-}
-
-
-
-console.log(list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ]))
-// returns 'Bart, Lisa & Maggie'
-
-console.log(list([ {name: 'Bart'}, {name: 'Lisa'} ]))
-// returns 'Bart & Lisa'
-
-console.log(list([ {name: 'Bart'} ]))
-// returns 'Bart'
-
-console.log(list([]))
+// console.log(list([]))
 // returns '
 
 
 
+function rowWeights(array) { 
+  var team1 = 0;
+  var team2 = 0;
+  array.forEach(function(element,index) {
+    if(index % 2 == 0){
+      team1 += element;
+    }else{
+      team2 += element;
+    }
+  });
+  return [team1, team2];
+}
 
 
+rowWeights([70, 58, 75, 34, 91])
 
  
