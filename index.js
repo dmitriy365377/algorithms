@@ -1866,21 +1866,4 @@ function isBalanced(str) {
 // returns '
 
 
-
-function rowWeights(array) { 
-  var team1 = 0;
-  var team2 = 0;
-  array.forEach(function(element,index) {
-    if(index % 2 == 0){
-      team1 += element;
-    }else{
-      team2 += element;
-    }
-  });
-  return [team1, team2];
-}
-
-
-rowWeights([70, 58, 75, 34, 91])
-
  
