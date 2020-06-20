@@ -228,3 +228,98 @@ function sumArray(list) {
 // 2. Ходим по всем числам и смотрим, есть ли противоположное этому числу в массиве (проверяем через объект)
 // 3. Заодно мы можем узнать, какой индекс у этого противоположного числа
 // 4. Так же, как в предыдущем решении, запоминать пару, у которой наименьшее расстояние между индексами
+
+
+
+const contragents = [
+  {
+    props: {
+      array_debt: [
+        {
+          debt: "67124.41",
+          org: "ИП Быстрова Н.В. (БЯЗЬ)"
+        }
+      ]
+    }
+  },
+  {
+    props: {
+      array_debt: [
+        {
+          debt: "104259.16",
+          org: "ИП Анохин А.А. (с 2020)"
+        },
+        { 
+          debt: "-68.76",
+          org: "ИП Москалюк Юлия Алиевна"
+        }
+      ]
+    }
+  },
+]
+
+const contractors = [
+  {
+    name: "Анохин А. А."
+  },
+  {
+    name: "Быстрова Н. В."
+  },
+  {
+    name: "Москалюк Ю. А."
+  },
+  {
+    name: "Попов Ю. А."
+  }
+]
+
+  // console.log("ИП Москалюк Юлия Алиевна".split(' ')[1])
+  //.org.split(' ')[1])
+// const newArray = contractors.map(element => {
+//   const name = element.substring(0, element.indexOf(" "));
+//   return {
+//     ...element,
+//     debt: contragents.find(obj => obj.props.array_debt.find(eachObj => eachObj.org.split(' ')[1]))
+//   }
+// })
+
+// const newArray = contractors.map(element => {
+//   const name = element.name.substring(0, element.name.indexOf(" "));
+//   let debt = '';
+//   contragents.forEach(obj => {
+//     obj.props.array_debt.forEach(persons => {
+//       const org = persons.org.split(' ')[1];
+//       if (org === name ) {
+//         debt = persons.debt;
+//       }
+//     })
+//   });
+  
+//   return {
+//     ...element,
+//     debt 
+//   }
+// });
+
+// console.log(newArray)
+
+
+const newContragents = contragents.reduce((acc, obj) => {
+  return [...acc, ...obj.props.array_debt];
+}, [])
+
+const newArray = contractors.map(element => {
+  const name = element.name.substring(0, element.name.indexOf(" "));
+  let debt = null;
+  newContragents.forEach(person => {
+    const org = person.org.split(' ')[1];
+    if (org === name) {
+      debt = person.debt;
+    }
+  });
+  return {
+    ...element,
+    debt
+  }
+});
+console.log(newArray)
