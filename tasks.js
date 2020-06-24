@@ -380,58 +380,80 @@ function isAgeDiverse(list) {
 }
 
 
-const searchCity = [
-  {id:1,name:"Новосибирск"}
-]
+// const searchCity = [
+//   {id:1,name:"Новосибирск"}
+// ]
+// console.log('searchCity', searchCity.length)
+// const fixedDeliveryData = {
+//   "Новосибирск":["2020-06-25", "2020-06-29"],
+//   "Москва":["2020-06-25", "2020-06-29"],
+// }
+
+
+
+// const selected = new Date('2020-06-28')
+
+// // ''
+
+// const selected = new Date(Y, M, D);
+
+// const isValid = start <= selected && selected <= end;
+
+// const city = searchCity[0];
+// let filterDeliveryData = fixedDeliveryData[city.name];
+// console.log('filterDeliveryData',filterDeliveryData) 
   
-const fixedDeliveryData = {
-  "Новосибирск":["2020-06-25", "2020-06-29"],
-  "Москва":["2020-06-25", "2020-06-29"],
-}
-  
-const start = new Date('2020-06-25')
-const end = new Date('2020-06-29')
+// const start = new Date(filterDeliveryData[0])
+// console.log('statr',start)
 
-const selected = new Date('2020-06-28')
 
-''
-
-const selected = new Date(Y, M, D);
-
-const isValid = start <= selected && selected <= end;
-
-const city = searchCity[0];
-let filterDeliveryData = fixedDeliveryData[city.name];
-  
-let filterDeliveryData = null
-
-for (const key in fixedDeliveryData) {
-  if (key === searchCity[0].name) {
-    filterDeliveryData = fixedDeliveryData[key]
+function convert(str) {
+  if(str === "Fri Jun 26 2020 00:00:00 GMT+0300"){
+    const dateForConvert = new Date(str);
+    const mnth = ("0" + (dateForConvert.getMonth() + 1)).slice(-2);
+    const day = ("0" + dateForConvert.getDate()).slice(-2);
+    const newDate = [dateForConvert.getFullYear(), mnth, day].join("-");
+    return newDate
   }
 }
+let result = convert("Fri Jun 26 2020 00:00:00 GMT+0300");
+console.log('result',result)
+
+
+
+const end = new Date('2020-06-29')
+console.log('type', typeof end === "object")
+
+
+// let filterDeliveryData = null
+
+// for (const key in fixedDeliveryData) {
+//   if (key === searchCity[0].name) {
+//     filterDeliveryData = fixedDeliveryData[key]
+//   }
+// }
   
-console.log('filterDeliveryData',filterDeliveryDat) 
 
 
-const dbConnection = new Promise(resolve => {
-  db.connect(() => {
-    resolve();
-  });
-})
 
-db.connect(() => {
-  db.get((data) => {
-    db.get(() => {
-      // ...
-    })
-  })
-})
+// const dbConnection = new Promise(resolve => {
+//   db.connect(() => {
+//     resolve();
+//   });
+// })
 
-dbConnection.then(() => {
-  console.log('connected!');
-}).then(() => {
-  db.get()
-}).then(() => {
-  // ...
-})
+// db.connect(() => {
+//   db.get((data) => {
+//     db.get(() => {
+//       // ...
+//     })
+//   })
+// })
+
+// dbConnection.then(() => {
+//   console.log('connected!');
+// }).then(() => {
+//   db.get()
+// }).then(() => {
+//   // ...
+// })
