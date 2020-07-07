@@ -4,6 +4,8 @@
 // //   }, Math.random() * 2000);
 // // }
 
+const { reject } = require("ramda")
+
 // const { reject } = require("ramda");
 
 // // function sumPromise(a, b) {
@@ -235,29 +237,103 @@
 
 
 
-const plus1 = x => new Promise(r => setTimeout(r, 1000, x + 1))
-const plus2 = x => new Promise(r => setTimeout(r, 2000, x + 2))
-const plus3 = x => new Promise(r => setTimeout(r, 3000, x + 3))
-const plus4 = x => new Promise(r => setTimeout(r, 4000, x + 4))
-const plus5 = x => new Promise(r => setTimeout(r, 5000, x + 5))
+// const plus1 = x => new Promise(r => setTimeout(r, 1000, x + 1))
+// const plus2 = x => new Promise(r => setTimeout(r, 2000, x + 2))
+// const plus3 = x => new Promise(r => setTimeout(r, 3000, x + 3))
+// const plus4 = x => new Promise(r => setTimeout(r, 4000, x + 4))
+// const plus5 = x => new Promise(r => setTimeout(r, 5000, x + 5))
 
-//  Написать функцию delay:
-
-Promise.resolve(0)
-    .then(plus1)
-    .then(plus2)
-    .then(plus2)
-    .then(delay(5000))
-    .then(plus5)
-    .then(plus5)
-    .then(console.log) // число 15 через 20 сек
+// //  Написать функцию delay:
+// console.time('start');
+// Promise.resolve(0)
+//     .then(plus1)
+//     .then(plus2)
+//     .then(plus2)
+//     .then(delay(5000))
+//     .then(plus5)
+//     .then(plus5)
+//     .then(x => {
+//         console.log(x);
+//         console.timeEnd('start');
+//     }) // число 15 через 20 сек
 
 // https://learn.javascript.ru/async [3]
 
+
+// function delay(time) {
+//     return new Promise(resolve => setTimeout(resolve, time));
+// }
+
+
 function delay(ms) {
-    return function() {
-        setTimeout(() => ,ms)
+    return function (x) {
+        return new Promise(resolve => setTimeout(() => resolve(x), ms));
     };
 }
 
+// function delay(ms) {
+//     return function() {
+//         setTimeout(() => ,ms)
+//     };
+// }
+
 // https://www.figma.com/file/hsHevvgALEDg4pdyLMguHK/Untitled?node-id=0%3A1
+
+
+
+
+
+
+// let count = 0;
+// const request = (url) => new Promise(resolve => setTimeout(() => {
+//     if (++count <= 3) {
+//         reject('err ' + count + ' ' + url)
+//     } else {
+//         resolve('ok ' + count + ' ' + url);
+//     }
+// }, ms));
+
+
+function withRetry(fn, total) {
+    let counter = 0
+    return function(url){
+        return new Promise((resolve,reject) => {
+            fn(url).then(
+                result => {
+                    resolve(result)
+                },
+                error => {
+                    counter++
+                    fn(url).then(
+                        null,
+                        error2 => {
+                            reject(error2)
+                        }
+                    )
+                    
+                    if(counter < total) {
+                        reject(error) 
+                    }
+                }
+            )
+        })
+    }
+}
+
+let count = 0;
+const randomFetch = (url) => new Promise((resolve, reject) => setTimeout(() => {
+    const rand = Math.random();
+    console.log(`rand ${rand} count ${++count}`);
+    if (rand > 0.33) {
+        reject('err ' + url)
+    } else {
+        resolve('ok ' + url);
+    }
+}));
+
+const requestWithRetry = withRetry(randomFetch, 5);
+
+requestWithRetry('https://ya.ru').then(
+    (x) => console.log(1, x),
+    (x) => console.log(2, x),
+);
