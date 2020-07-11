@@ -295,30 +295,26 @@ function delay(ms) {
 
 
 function withRetry(fn, total) {
-    let counter = 0
-    return function(url){
-        return new Promise((resolve,reject) => {
+    let counter = 1 
+    return function oneMore(url) { 
+        return new Promise((resolve, reject) => { 
             fn(url).then(
                 result => {
                     resolve(result)
                 },
                 error => {
                     counter++
-                    fn(url).then(
-                        null,
-                        error2 => {
-                            reject(error2)
-                        }
-                    )
-                    
-                    if(counter < total) {
-                        reject(error) 
+                    if(counter != total) {
+                        oneMore(url).then(resolve, reject)
+                    } else {
+                        reject(error)
                     }
                 }
             )
-        })
+        });
     }
 }
+
 
 let count = 0;
 const randomFetch = (url) => new Promise((resolve, reject) => setTimeout(() => {
@@ -334,6 +330,58 @@ const randomFetch = (url) => new Promise((resolve, reject) => setTimeout(() => {
 const requestWithRetry = withRetry(randomFetch, 5);
 
 requestWithRetry('https://ya.ru').then(
-    (x) => console.log(1, x),
-    (x) => console.log(2, x),
-);
+    (x) => console.log(x),
+    (x) => console.log(x),
+)
+
+
+[
+    {
+      "name": "bulbasaur",
+      "id": "1",
+    },
+    {
+      "name": "ivysaur",
+      "id": "2",
+    },
+    {
+      "name": "venusaur",
+      "id": "3",
+    },
+    {
+      "name": "charmander",
+      "id": "4",
+    },
+    {
+      "name": "charmeleon",
+      "id": "5",
+    },
+    {
+      "name": "charizard",
+      "id": "6",
+    },
+    {
+      "name": "squirtle",
+      "id": "7",
+    },
+    {
+      "name": "wartortle",
+      "id": "8",
+    },
+    {
+      "name": "blastoise",
+      "id": "9",
+    },
+    {
+      "name": "caterpie",
+      "id": "10",
+    },
+    {
+      "name": "metapod",
+      "id": "11",
+    },
+    {
+      "name": "butterfree",
+      "id": "12",
+    }
+  ]
