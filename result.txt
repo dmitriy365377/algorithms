@@ -1,0 +1,24 @@
+The index of this number is: 4
+The index of this number is: 4
+The index of this number is: 4
+The index of this number is: 4
+4
+The index of this number is: 4
+The index of this number is: 4
+The index of this number is: 4
+The index of this number is: 4
+The index of this number is: 0
+The index of this number is: 1
+The index of this number is: 2
+The index of this number is: 3
+The index of this number is: 0
+The index of this number is: 1
+The index of this number is: 2
+The index of this number is: 3
+a 5
+this.a undefined
+this.a undefined
+this.a 123456
+this.a 5
+this.a Dima
+{ name1: 'Dima', name: 'Max' } 3 7 10
