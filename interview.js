@@ -276,3 +276,13 @@ function test(str) {
 } // мы устроились в facebook
 
 //https://habr.com/ru/company/vdsina/blog/514760/
+
+
+const a = {
+    s: 'sd',
+    b: function () {
+        return () => { console.log(this) }
+    }
+}
+
+a.b()
