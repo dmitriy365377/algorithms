@@ -38,7 +38,6 @@
 //     return res
 // }
 
-
 // const test = (str) => {
 //   const start = ['[', '(', '<', '{'];
 //   const end = [']', ')', '>', '}'];
@@ -54,6 +53,7 @@
 //   }
 //   return !arr.length;
 // };
+
 
 // console.log(test('[]()<>')); // true
 // console.log(test('[')); // false
@@ -156,36 +156,36 @@
 
 
 // Написать задачу, которая находит все аннограммы
-const array = [
-    "вертикаль",
-    "кильватер",
-    "апельсин",
-    "спаниель",
-    "австралопитек",
-    "ватерполистка",
-    "кластер",
-    "сталкер",
-    "стрелка",
-    "корабль"
-]
+// const array = [
+//     "вертикаль",
+//     "кильватер",
+//     "апельсин",
+//     "спаниель",
+//     "австралопитек",
+//     "ватерполистка",
+//     "кластер",
+//     "сталкер",
+//     "стрелка",
+//     "корабль"
+// ]
 
-// Результат:
-const x = [
-    ["вертикаль", "кильватер"],
-    ["апельсин", "спаниель"],
-    ["австралопитек", "ватерполистка"],
-    ["кластер", "сталкер", "стрелка"],
-	["корабль"]
-]
-annogramm2(array)
-function annogramm2(arr) {
-    const result  = {}
-    arr.forEach((item,i) => {
-        const itemSorted = item.split('').sort().join('')
-        return result[itemSorted] = result[itemSorted] ? [...result[itemSorted], item] : [item]
-    })
-    console.log('МОЕ',Object.values(result))
-}
+// // Результат:
+// const x = [
+//     ["вертикаль", "кильватер"],
+//     ["апельсин", "спаниель"],
+//     ["австралопитек", "ватерполистка"],
+//     ["кластер", "сталкер", "стрелка"],
+// 	["корабль"]
+// ]
+// annogramm2(array)
+// function annogramm2(arr) {
+//     const result  = {}
+//     arr.forEach((item,i) => {
+//         const itemSorted = item.split('').sort().join('')
+//         return result[itemSorted] = result[itemSorted] ? [...result[itemSorted], item] : [item]
+//     })
+//     console.log('МОЕ',Object.values(result))
+// }
 
 // console.log(annogramm(array))
 // function annogramm(arr) {
